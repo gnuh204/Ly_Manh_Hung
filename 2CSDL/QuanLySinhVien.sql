@@ -24,10 +24,13 @@ Credit Tinyint not  null default 1 check (Credit >=1 ),
  Status BIT DEFAULT  1
  );
  
- create table Mark(
+  create table Mark(
  MarkID int not null auto_increment primary key ,
- SubID int not null unique,
- StudentID int not null unique,
+ SubID int not null ,
+ StudentID int not null,
  Mark float default 0 check (Mark between 0 and 100),
- ExamTimes 	Tinyint default 1
+ ExamTimes 	Tinyint default 1,
+ unique(SubID,StudentID),
+ foreign key (SubID) references Subjects (SubID),
+ foreign key (StudentID) references Student (StudentID)
  );
