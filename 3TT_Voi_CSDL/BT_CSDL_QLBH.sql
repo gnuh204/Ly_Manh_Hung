@@ -59,11 +59,11 @@ from customer C left join order_ O on C.cID = O.cID
 where O.oID is null;
 
 -- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn
-select C.cName,O.oDate,P.pName,P.pPrice,OD.odQTY,sum(P.pPrice * OD.odQTY) AS GiaTien
+select OD.oID,O.oDate,sum(P.pPrice * OD.odQTY) AS GiaTien
 from customer C join order_ O on C.cID = O.cID
 join orderdetail OD on o.oID = OD.oID
 join product P on OD.pID = P.pID
-group by C.cName,O.oDate,P.pName,P.pPrice,OD.odQTY;
+group by OD.oID;
 
 
 
