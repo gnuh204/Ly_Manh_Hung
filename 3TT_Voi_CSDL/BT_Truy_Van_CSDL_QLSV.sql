@@ -14,8 +14,7 @@ where Credit between 3 and 5;
 
 -- Thay đổi mã lớp(ClassID) của sinh viên có tên ‘Hung’ là 2.
 
-UPDATE Class C
-JOIN Student S ON C.Status = S.Status
-SET S.ClassID = 2, 
-    C.ClassID = 2
-WHERE S.StudentName = 'Hung';
+update Student 
+set ClassID = 2 
+where StudentName = 'Hung';
+
